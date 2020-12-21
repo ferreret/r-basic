@@ -1,0 +1,78 @@
+---
+title: "NBL-Tarea-1"
+author: "Nicolás Barceló"
+date: "21/11/2020"
+output: html_document
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pregunta 1
+```{r pregunta1}
+f1 = function(x) {
+  x^2 - 3*x + 30
+}
+curve(f1,
+      from = -15,
+      to = 15,
+      xlab = "x",
+      ylab = expression(y = x^2-3*x+30)
+)
+```
+## Pregunta 2
+```{r pregunta2}
+l = -15:15
+plot(f1(l))
+```
+
+## Pregunta 3
+```{r pregunta3}
+f2 = function(x) {
+  5*(2^x)
+}
+curve(f2,
+      from = -10,
+      to = 25,
+      ylab = expression(5(2^x)),
+      log = "y")
+
+```
+
+## Pregunta 4
+```{r pregunta4}
+y1 = function(x) {3*x}
+y2 = function(x) {-3*x}
+curve(y1,
+      from = -10,
+      to = 20,
+      col = "blue",
+      main = "2 rectas",
+      sub = "Dos rectas con pendiente opuesta")
+curve(y2,
+      add = TRUE,
+      col = "green")
+legend("topleft",
+       lw = 2,
+       legend = c(expression(3*x), expression(-3*x)),
+       col = c("blue", "green"),
+       lty = c("dashed", "dashed"))
+
+## Pregunta 5
+abline(h=0,
+       col = "red",
+       lwd = 5)
+
+## Pregunta 6
+y3 = function(x) {2*x+7}
+curve(y3,
+      col = "blue",
+      lwd = 2,
+      add = TRUE)
+
+```
+
+

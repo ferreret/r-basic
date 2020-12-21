@@ -1,0 +1,66 @@
+---
+title: "Tarea DataFrames"
+author: "Nicolás Barceló"
+date: "27/11/2020"
+output: html_document
+---
+
+## Tarea dataframes
+
+### Pregunta 1
+
+¿Cuantos deportistas aparecen en el data frame?
+
+```{r}
+df = read.csv("http://winterolympicsmedals.com/medals.csv")
+head(df)
+# str(df)
+
+
+nrow(df)
+```
+
+### Pregunta 2
+
+¿Cuantos han ganado medallas de oro, cuantos de plata y cuantos de bronce?
+
+```{r}
+nrow(subset(df, Medal == "Gold"))
+nrow(subset(df, Medal == "Silver"))
+nrow(subset(df, Medal == "Bronze"))
+```
+
+### Pregunta 3
+
+¿En cuantos lugares se han hecho olimpiadas de invierno?
+
+```{r}
+nlevels(df$City)
+```
+
+### Pregunta 4
+
+¿Cuantos hombres y cuantas mujeres hay?
+
+```{r}
+nrow(subset(df, Event.gender == "M"))
+nrow(subset(df, Event.gender == "W"))
+```
+### Pregunta 5
+
+¿En qué año participaron más deportistas?
+
+```{r}
+df[,9] = 1
+aggregate(V9~Year, data = df, FUN = sum, na.rm = TRUE)
+```
+### Pregunta 6
+El campo NOC indica el país del ganador de la medalla. ¿Qué país puede presumir de haber ganado más medallas de oro en los juegos de invierno entre 1960 y 1996?
+
+```{r}
+df2 = subset(df, Year >= 1960 & Year <= 1996 & Medal == "Gold")
+df2[,8] =1
+df2$Medal = as.integer(df2$Medal)
+aggregate(Medal~NOC, data = df2, FUN = sum, na.rm = TRUE)
+```
+

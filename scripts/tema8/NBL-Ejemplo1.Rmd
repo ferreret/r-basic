@@ -1,0 +1,56 @@
+---
+title: "Ejemplo1"
+author: "Nicolás Barceló"
+date: "17/12/2020"
+output: html_document
+---
+```{r}
+
+```
+
+# Edades
+```{r}
+edad = c(15,18,25,40,30,29,56,40,13,27,42,23,11,26,25,32,30,40,33,29)
+table(edad)
+```
+
+```{r}
+round(prop.table(table(edad)),3)
+```
+
+```{r}
+cumsum(table(edad))
+```
+
+```{r}
+round(cumsum(prop.table(table(edad))),3)
+```
+## Ejemplos con dados
+```{r}
+set.seed(162017)
+dados = sample(1:6, 25, replace = TRUE)
+dados
+set.seed(NULL)
+```
+```{r}
+table(dados)
+```
+
+```{r}
+round(prop.table(table(dados)),2)
+```
+```{r}
+cumsum(table(dados))
+```
+```{r}
+round(cumsum(prop.table(table(dados))),2)
+```
+```{r}
+dados.df = data.frame(Puntuacion=1:6,
+                      Fr.abs = as.vector(table(dados)),
+                      Fr.rel = as.vector(round(prop.table(table(dados)),2)),
+                      Fr.acu = as.vector(cumsum(table(dados))),
+                      Fr.racu = as.vector(round(cumsum(prop.table(table(dados))),2)))
+dados.df
+```
+

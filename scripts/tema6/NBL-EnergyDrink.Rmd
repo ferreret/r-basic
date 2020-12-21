@@ -1,0 +1,39 @@
+---
+title: "Energy Drink"
+author: "Nicolás Barceló"
+date: "14/12/2020"
+output: html_document
+---
+
+```{r}
+Beb_Energ = read.table("../../data/EnergyDrink", header = TRUE)
+str(Beb_Energ)
+```
+
+```{r}
+head(Beb_Energ)
+```
+```{r}
+summary(Beb_Energ)
+```
+```{r}
+apply(Beb_Energ, MARGIN = 2, FUN = table)
+```
+```{r}
+apply(Beb_Energ, MARGIN = 2, FUN = table)$sexo
+```
+```{r}
+table(Beb_Energ$sexo)
+```
+
+```{r}
+table(Beb_Energ[c(1,3)])
+```
+```{r}
+ftable(Beb_Energ)
+```
+```{r}
+barplot(table(Beb_Energ$sexo), col = c("lightblue", "pink"), main = "Diagrama de barras de
+        las frecuencias absolutas \n de la variable \"Sexo\"")
+```
+

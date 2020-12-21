@@ -1,0 +1,118 @@
+---
+title: "Tarea tema 6"
+author: "Nicolás Barceló"
+date: "15/12/2020"
+output: html_document
+---
+
+# TAREA TEMA 6
+
+## Cargamos la librería `MASS`
+
+```{r}
+library(MASS)
+```
+
+## Pregunta 1
+
+Utiliza str() y head() para explorar la estructura, y con help(), mirar el significado de cada variable.
+
+```{r}
+str(birthwt)
+```
+
+```{r}
+head(birthwt)
+```
+
+## Pregunta 2
+
+Calcula una tabla de frecuencias relativas marginales de los pares (raza de la madre, peso inferior a 2.5 kg o no) que permita ver si la raza de la madre influye en el peso del bebé.
+
+```{r}
+prop.table(table(birthwt$race, birthwt$low))
+```
+
+
+## Pregunta 3
+
+Dibuja un diagrama de mosaico de la tabla del ejercicio anterior.
+
+```{r}
+plot(prop.table(table(birthwt$race, birthwt$low)),
+     main = "Gráfico mosaico freq rel raza/peso",
+     xlab = "Raza", ylab = "Peso")
+```
+
+
+## Pregunta 4
+
+Dibuja un diagrama bidimensional de barras, con las barras organizadas en bloques, que permita visualizar la información de los ejercicios anteriores. Aprovecha para nombres adecuados a los bloques, colores a las barras, y añadir una leyenda que explique qué representa cada barra.
+
+```{r}
+barplot(prop.table(table(birthwt$race, birthwt$low)), beside = TRUE,
+        names=c("Peso normal", "Peso inferior"),
+        col = c("white", "yellow", "black"),
+        legend.text = c("blanca", "oriental", "negra"), 
+        ylim = c(0, 0.45))
+```
+
+
+
+## Pregunta 5
+
+¿Se puede obtener alguna conclusión de la tabla y el diagrama de barras anterior? Argumenta tu respuesta
+
+La incidencia del peso inferior es menor para todas las razas, pero con mucha más frecuencia de peso normal para la raza blanca.
+
+## Pregunta 6
+
+Repite los cuatro ejercicios anteriores para los pares (madre fumadora o no, peso inferior a 2.5 kg o no) y para los pares (madre hipertensa o no, peso inferior a 2.5 kg o no.
+
+```{r}
+prop.table(table(birthwt$smoke, birthwt$low))
+
+plot(prop.table(table(birthwt$smoke, birthwt$low)),
+     main = "Gráfico mosaico freq rel fumar/peso inferior",
+     xlab = "Fuma", ylab = "Peso inferior")
+
+barplot(prop.table(table(birthwt$smoke, birthwt$low)), beside = TRUE,
+        names=c("Peso normal", "Peso inferior"),
+        legend.text = c("No fuma", "Fuma"),
+        col = c("yellow", "lightblue"),
+        ylim = c(0, 0.55))
+```
+
+```{r}
+prop.table(table(birthwt$ht, birthwt$low))
+
+plot(prop.table(table(birthwt$ht, birthwt$low)),
+     main = "Gráfico mosaico freq rel hipertensión/peso inferior",
+     xlab = "Hipertensa", ylab = "Peso inferior")
+
+barplot(prop.table(table(birthwt$ht, birthwt$low)), beside = TRUE,
+        names=c("Peso normal", "Peso inferior"),
+        legend.text = c("No hipertensa", "Hipertensa"), 
+        col = c("yellow", "lightblue"),
+        ylim = c(0, 0.75))
+```
+
+
+## Pregunta 7
+
+Calcula una tabla de frecuencias relativas marginales de las ternas (raza de la madre, madre fumadora o no, peso inferior a 2.5 kg o no) que permita ver si la raza de la madre y su condición de fumadora o no fumadora influyen en el peso del bebé.
+
+```{r}
+prop.table(table(birthwt$race, birthwt$smoke, birthwt$low))
+```
+
+
+## Pregunta 8
+
+Dibuja un diagrama de mosaico de la tabla del ejercicio anterior.
+
+```{r}
+plot(prop.table(table(birthwt$race, birthwt$smoke, birthwt$low)),
+     main = "Gráfico mosaico freq rel raza/fumadora/peso")
+```
+

@@ -1,0 +1,75 @@
+---
+title: "Documentación de texto"
+author: "NBL"
+date: "4/11/2020"
+output: pdf_document
+---
+
+# Título 1
+
+## Título 2
+
+### Título 3
+
+#### Título 4
+
+##### Título 5
+
+###### Título 6
+
+Esto es un text llano. Podemos escribir sin ningún problema todo el texto que uqeramos para acompañar a tanto el código en `R` como las fórmulas en \LaTeX.
+
+Esto es una nueva línea de texto. Para que separe párrafos siempre se necesita doble párrafo.
+
+Para colocar *cursiva* podemos usar un asterisco: *esto sería un texto en cursiva* o bien usar una barra baja _esto también es cursiva_
+
+Para colocar **negrita** podemos usar un doble asterisco: **esto es negrita** o bien una doble barra baja __esto también es negrita__.
+
+Los superíndices van con el *sombrerito*: este curso vale por mi nota^2^.
+
+Para tachar una palabra usamos una doble tilde ~~Las matemáticas son un rollo~~.
+
+Para conocer más sobre los cursos de JB, podemos visitar su [perfil de Udemy](https://udemy.com/u/JuanGabriel2)
+
+endash: -- Y entonces JB digo: ...
+
+emdash: ... --- como JB quería explicar
+
+elipsis: ...
+
+ecuaciones en línea $S = \pi\cdot r^2$.
+
+imagen ![](../../teoria/Imgs/binomprob.png)
+
+
+***
+
+Aquí empezamos otra cosa
+
+> Esto es una cita en bloque
+
+### Listas no ordenadas
+
+* Item primero
+* Item segundo
+    + Sub ítem 2.1
+    + Sub item 2.2
+    + Sub Item 2.3
+* Item tercero
+
+
+### Listas ordenadas
+
+1. Primer ítem
+2. Segundo ítem
+    + Sub ítem de 2
+    + dfafdaf
+1. Es igual si pone un, será un 3
+
+
+
+Alumno    |   Nota
+----------|-------------
+Juan G    |  3.5
+Ricardo   |  5.6
+Maria     |  7.3

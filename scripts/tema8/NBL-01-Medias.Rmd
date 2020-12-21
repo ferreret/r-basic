@@ -1,0 +1,152 @@
+---
+title: "Medias"
+author: "Nicolás Barceló"
+date: "18/12/2020"
+output: html_document
+---
+
+# Medias
+
+```{r}
+x = c(32, 45, 67, 43, 28, 17, 48, 95)
+n = length(x)
+```
+
+Vamos a calcular las medias del vector `r x` que está formado por `r n` observaciones.
+
+## Media aritmética
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i$$.
+
+```{r}
+sum(x)/n # mean
+```
+
+## Media aritmética ponderada
+
+$$\bar{x}_w =\frac{\sum_{i=1}^nw_i\cdot x_i}{\sum_{i=1}^n w_i}$$
+
+```{r}
+# pesos
+w = c(1, 2, 2, 3, 3, 2, 2, 1)
+
+sum(w*x)/sum(w)
+```
+
+## Media geométrica
+
+$$\bar{x}_G =\left(\prod_{i=1}^n x_i\right)^{1/n}$$
+```{r}
+# Dos opciones de escribirlo
+prod(x)^(1/n)
+prod(x^(1/n))
+```
+## Media armónica
+
+$$\bar{x}_A = \frac{n}{\sum_{i=1}^{n}\frac{1}{x_i}}$$
+```{r}
+n/sum(1/x)
+```
+# CUANTILES
+
+Dado de cuatro caras
+
+```{r}
+set.seed(260798)
+dado = sample(1:4, 50, replace = TRUE)
+set.seed(NULL)
+length(dado)
+```
+
+```{r}
+dado = sort(dado) #Ordenación de menor a mayor
+dado
+```
+```{r}
+df.dado = data.frame(Puntuacion = 1:4,
+                     Fr.abs = as.vector(table(dado)),
+                     Fr.rel = as.vector(round(prop.table(table(dado)), 2)),
+                     Fr.acu = as.vector(cumsum(table(dado))),
+                     Fr.racu = as.vector(round(cumsum(prop.table(table(dado))),2)))
+df.dado
+```
+
+```{r}
+set.seed(0)
+dados2 = sample(1:6, 15, replace = TRUE)
+dados2
+set.seed(NULL)
+quantile(dados2, 0.25)
+
+quantile(dados2, 0.8)
+```
+#### Valores mínimo y máximo
+```{r}
+range(dados2)
+```
+
+#### Rango
+```{r}
+diff(range(dados2))
+```
+
+#### Rango intercuartilico
+
+```{r}
+IQR(dados2)
+```
+
+#### Varianza muestral
+```{r}
+var(dados2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
